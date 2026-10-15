@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Laptop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+    
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-3 fw-bold text-white">
+                <i class="fas fa-laptop me-3"></i>Customize Your Laptop
+            </h1>
+            <p class="lead text-white-50">Build your dream machine with our customization tool</p>
+        </div>
+
+        <!-- Main Form Card -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header bg-primary text-white rounded-top-4 p-4">
+                        <h3 class="mb-0"><i class="fas fa-sliders-h me-2"></i>Laptop Customization Form</h3>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5">
+                        <form id="laptopForm" onsubmit="submitForm(event)">
+                            
+                            <!-- ========== PERSONAL INFORMATION ========== -->
+                            <h4 class="border-bottom pb-2 mb-4 text-primary">
+                                <i class="fas fa-user me-2"></i>Personal Information
+                            </h4>
+                            
+                            <!-- Name -->
+                            <div class="mb-3">
+                                <label for="customerName" class="form-label fw-semibold">
+                                    <i class="fas fa-user me-1"></i>Full Name
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="customerName" 
+                                       placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="mb-4">
+                                <label for="customerEmail" class="form-label fw-semibold">
+                                    <i class="fas fa-envelope me-1"></i>Email Address
+                                </label>
+                                <input type="email" class="form-control form-control-lg" id="customerEmail" 
+                                       placeholder="Enter your email" required>
+                            </div>
+
+                            <!-- ========== LAPTOP SPECIFICATIONS ========== -->
+                            <h4 class="border-bottom pb-2 mb-4 text-primary">
+                                <i class="fas fa-microchip me-2"></i>Laptop Specifications
+                            </h4>
+                            
+                            <!-- Laptop Type (Dropdown) -->
+                            <div class="mb-3">
+                                <label for="laptopType" class="form-label fw-semibold">
+                                    <i class="fas fa-laptop me-1"></i>Laptop Type
+                                </label>
+                                <select class="form-select form-select-lg" id="laptopType" required>
+                                    <option value="">Select laptop type...</option>
+                                    <option value="gaming">🎮 Gaming Laptop</option>
+                                    <option value="business">💼 Business Laptop</option>
+                                    <option value="ultrabook">✨ Ultrabook</option>
+                                    <option value="student">📚 Student Laptop</option>
+                                    <option value="workstation">⚡ Workstation</option>
+                                </select>
+                            </div>
+
+                            <!-- RAM Size (Radio Buttons) -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-memory me-1"></i>RAM Size
+                                </label>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ram" id="ram8" value="8GB" checked>
+                                        <label class="form-check-label" for="ram8">8 GB</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ram" id="ram16" value="16GB">
+                                        <label class="form-check-label" for="ram16">16 GB</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ram" id="ram32" value="32GB">
+                                        <label class="form-check-label" for="ram32">32 GB</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="ram" id="ram64" value="64GB">
+                                        <label class="form-check-label" for="ram64">64 GB</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Features (Checkboxes) -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-plus-circle me-1"></i>Additional Features
+                                </label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureBacklit" value="backlit">
+                                            <label class="form-check-label" for="featureBacklit">
+                                                <i class="fas fa-keyboard me-1"></i>Backlit Keyboard
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureTouch" value="touch">
+                                            <label class="form-check-label" for="featureTouch">
+                                                <i class="fas fa-hand-pointer me-1"></i>Touchscreen
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureWarranty" value="warranty">
+                                            <label class="form-check-label" for="featureWarranty">
+                                                <i class="fas fa-shield-alt me-1"></i>Extended Warranty
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureSSD" value="ssd">
+                                            <label class="form-check-label" for="featureSSD">
+                                                <i class="fas fa-database me-1"></i>1TB NVMe SSD
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureGPU" value="gpu">
+                                            <label class="form-check-label" for="featureGPU">
+                                                <i class="fas fa-cube me-1"></i>Dedicated GPU
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featureCooling" value="cooling">
+                                            <label class="form-check-label" for="featureCooling">
+                                                <i class="fas fa-fan me-1"></i>Advanced Cooling
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance Level (Range Slider) -->
+                            <div class="mb-4">
+                                <label for="performanceLevel" class="form-label fw-semibold">
+                                    <i class="fas fa-tachometer-alt me-1"></i>Performance Level
+                                </label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="text-muted">1</span>
+                                    <input type="range" class="form-range flex-grow-1" id="performanceLevel" 
+                                           min="1" max="10" step="1" value="5" 
+                                           oninput="updatePerformanceValue(this.value)">
+                                    <span class="text-muted">10</span>
+                                    <span class="badge bg-primary fs-6 px-3" id="performanceDisplay">5</span>
+                                </div>
+                                <div class="text-muted small mt-1">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Slide to set performance level (1 = Basic, 10 = Extreme)
+                                </div>
+                            </div>
+
+                            <!-- ========== SUMMARY & SUBMIT ========== -->
+                            <div class="border-top pt-4 mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-check-circle me-2"></i>Submit Customization
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary w-100 mt-2">
+                                    <i class="fas fa-undo me-2"></i>Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL: Order Summary ========== -->
+    <div class="modal fade" id="summaryModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-header bg-success text-white rounded-top-4">
+                    <h5 class="modal-title">
+                        <i class="fas fa-check-circle me-2"></i>Order Summary
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="summaryContent">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="confirmOrder()">
+                        <i class="fas fa-shopping-cart me-2"></i>Confirm Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST: Confirmation ========== -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="confirmationToast" class="toast align-items-center text-bg-success border-0 shadow-lg" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <span id="toastMessage">Order confirmed!</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Update performance level display
+        function updatePerformanceValue(value) {
+            document.getElementById('performanceDisplay').textContent = value;
+        }
+
+        // Form submission handler
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const laptopType = document.getElementById('laptopType').value;
+            const ram = document.querySelector('input[name="ram"]:checked')?.value || 'Not selected';
+            const performance = document.getElementById('performanceLevel').value;
+            
+            // Get selected features
+            const features = [];
+            const featureCheckboxes = document.querySelectorAll('#laptopForm input[type="checkbox"]:checked');
+            featureCheckboxes.forEach(cb => {
+                const label = document.querySelector(`label[for="${cb.id}"]`)?.textContent?.trim() || cb.id;
+                features.push(label);
+            });
+            
+            // Build summary HTML
+            const summaryHTML = `
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light p-3">
+                            <h6 class="text-muted mb-2"><i class="fas fa-user"></i> Personal Info</h6>
+                            <p><strong>Name:</strong> ${name || 'Not provided'}</p>
+                            <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light p-3">
+                            <h6 class="text-muted mb-2"><i class="fas fa-laptop"></i> Laptop Specs</h6>
+                            <p><strong>Type:</strong> ${laptopType ? laptopType.charAt(0).toUpperCase() + laptopType.slice(1) : 'Not selected'}</p>
+                            <p><strong>RAM:</strong> ${ram}</p>
+                            <p><strong>Performance:</strong> ${performance}/10</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card border-0 bg-light p-3">
+                            <h6 class="text-muted mb-2"><i class="fas fa-plus-circle"></i> Selected Features</h6>
+                            ${features.length > 0 ? 
+                                `<ul class="list-unstyled mb-0">
+                                    ${features.map(f => `<li><i class="fas fa-check text-success me-2"></i>${f}</li>`).join('')}
+                                </ul>` : 
+                                '<p class="text-muted mb-0">No additional features selected</p>'
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('summaryContent').innerHTML = summaryHTML;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('summaryModal'));
+            modal.show();
+        }
+
+        // Confirm order function
+        function confirmOrder() {
+            const name = document.getElementById('customerName').value || 'Customer';
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = `🎉 Thank you ${name}! Your laptop order has been placed!`;
+            
+            // Show toast
+            const toast = new bootstrap.Toast(document.getElementById('confirmationToast'), { delay: 4000 });
+            toast.show();
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('summaryModal'));
+            modal.hide();
+        }
+
+        // Reset form handler
+        document.querySelector('button[type="reset"]').addEventListener('click', function(e) {
+            // Reset performance display
+            document.getElementById('performanceDisplay').textContent = '5';
+            // Reset radio to default
+            document.getElementById('ram8').checked = true;
+        });
+    </script>
+
+</body>
+</html>
